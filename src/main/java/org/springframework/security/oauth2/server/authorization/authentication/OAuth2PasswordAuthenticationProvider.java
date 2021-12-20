@@ -1,5 +1,6 @@
 package org.springframework.security.oauth2.server.authorization.authentication;
 
+import java.security.Principal;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Base64;
@@ -169,7 +170,9 @@ public class OAuth2PasswordAuthenticationProvider implements AuthenticationProvi
                 metadata.put(OAuth2Authorization.Token.CLAIMS_METADATA_NAME,
                     jwtAccessToken.getClaims()))
 
-        .attribute(OAuth2Authorization.AUTHORIZED_SCOPE_ATTRIBUTE_NAME, authorizedScopes);
+        .attribute(OAuth2Authorization.AUTHORIZED_SCOPE_ATTRIBUTE_NAME, authorizedScopes)
+        .attribute(Principal.class.getName(), passwordAuthenticationToken)
+        ;
 
     // 填充 refresh_token
     OAuth2RefreshToken refreshToken = null;
