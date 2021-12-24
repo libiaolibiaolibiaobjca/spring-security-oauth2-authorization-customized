@@ -5,7 +5,6 @@ import java.util.Set;
 import lombok.Getter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
-
 public class OAuth2PasswordAuthenticationToken extends
     OAuth2AuthorizationGrantAuthenticationToken {
 

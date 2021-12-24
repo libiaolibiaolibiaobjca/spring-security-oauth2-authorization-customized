@@ -136,7 +136,7 @@ public class OAuth2PasswordAuthenticationProvider implements AuthenticationProvi
       // @formatter:off
       context = JwtEncodingContext.with(headersBuilder, claimsBuilder)
           .registeredClient(registeredClient)
-          .principal(passwordAuthenticationToken)
+          .principal(clientPrincipal)
           .authorization(null)
           .authorizedScopes(authorizedScopes)
           .tokenType(new OAuth2TokenType(OidcParameterNames.ID_TOKEN))
